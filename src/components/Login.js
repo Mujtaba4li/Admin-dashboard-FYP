@@ -7,12 +7,11 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { Link } from 'react-router-dom'
 import Checkbox from '@mui/material/Checkbox';
-import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import loginimg from '../assets/images/logo.png'
-// import { withTheme } from '@emotion/react';
-import { deepOrange, white } from '@mui/material/colors';
+import '../assets/css/myTailwind.css'
 
 
 export default function Login() {
@@ -30,7 +29,8 @@ export default function Login() {
             <Grid vs={3}>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align='center'>
-                        <Avatar  alt="ShareClub" src={loginimg} sx={{ width: 80, height: 80 }}
+
+                        <Avatar alt="ShareClub" src={loginimg} sx={{ width: 80, height: 80 }}
                         />
                         {/* <img alt="Remy Sharp" sx={{ width: 6, height: 6px }} src= /> */}
                         <h1>Admin login</h1>
@@ -43,7 +43,9 @@ export default function Login() {
                             <FormControlLabel control={<Checkbox />} label="Remember me" />
 
                         </FormGroup>
-                        <Button variant="contained" style={{ marginTop: "20px" }} fullWidth>Login</Button>
+                        <Link to='/dashboard'>
+                            <Button variant="contained" className='bg-sky-800' style={{ marginTop: "20px" }} fullWidth>Login</Button>
+                        </Link>
                         <Button variant="outlined" type='reset' style={{ marginTop: "10px" }} fullWidth>Cancel</Button>
                         {/* <p>Forgot password<a href="#">NOW?</a></p> */}
                     </form>
