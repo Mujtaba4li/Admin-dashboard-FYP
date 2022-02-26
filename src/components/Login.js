@@ -33,11 +33,11 @@ export default function Login() {
                         <Avatar alt="ShareClub" src={loginimg} sx={{ width: 80, height: 80 }}
                         />
                         {/* <img alt="Remy Sharp" sx={{ width: 6, height: 6px }} src= /> */}
-                        <h1>Admin login</h1>
+                        <h1 style={{fontSize:'22px',fontFamily:"fantasy"}}>Admin login</h1>
                     </Grid>
                     <form>
-                        <TextField id="username" style={{ marginTop: "10px" }} label="Username" placeholder='Enter username' variant="standard" fullWidth />
-                        <TextField id="password" style={{ marginTop: "10px" }} type='password' label="Password" placeholder='Enter password' variant="standard" fullWidth />
+                        <TextField id="username" style={{ marginTop: "10px" }} label="Username" placeholder='Enter username' variant="standard" fullWidth required/>
+                        <TextField id="password" style={{ marginTop: "10px" }} type='password' label="Password" placeholder='Enter password' variant="standard" fullWidth required />
 
                         <FormGroup style={{ marginTop: "10px", fontSize: '1px' }}>
                             <FormControlLabel control={<Checkbox />} label="Remember me" />
