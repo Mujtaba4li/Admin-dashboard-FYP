@@ -35,7 +35,7 @@ export default function Login() {
                         {/* <img alt="Remy Sharp" sx={{ width: 6, height: 6px }} src= /> */}
                         <h1 style={{fontSize:'22px',fontFamily:"fantasy"}}>Admin login</h1>
                     </Grid>
-                    <form>
+                    <form >
                         <TextField id="username" style={{ marginTop: "10px" }} label="Username" placeholder='Enter username' variant="standard" fullWidth required/>
                         <TextField id="password" style={{ marginTop: "10px" }} type='password' label="Password" placeholder='Enter password' variant="standard" fullWidth required />
 

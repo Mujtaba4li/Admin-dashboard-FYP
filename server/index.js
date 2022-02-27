@@ -28,7 +28,7 @@ app.post('/api/registeradmin',async (req,res)=>{
 
 app.post('/api/login',async (req,res)=>{
    const user=await User.findOne({
-    email:req.body.email,
+    name:req.body.name,
     // password:req.body.password,
    })
    if(!user){

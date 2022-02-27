@@ -26,7 +26,7 @@ function App() {
 		const data = await response.json()
 
 		if (data.status === 'ok') {
-			history.push('/login123')
+			history.push('/Dashboard')
 		}
 	}
 
@@ -38,7 +38,7 @@ function App() {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 					type="text"
-					placeholder="Name"
+					placeholder="Username"
 				/>
 				<br />
 				<input style={{border:'1px solid blue'}}
