@@ -23,9 +23,10 @@ function App() {
 		if (data.user) {
 			localStorage.setItem('token', data.user)
 			alert('Login successful')
-			window.location.href = '/dashboard'
-		} else {
-			alert('Please check your username and password')
+			window.location.href = '/dashboard';
+		} 
+        else {
+			alert('Please check your email and password');
 		}
 	}
 

@@ -8,7 +8,7 @@ var bcrypt = require('bcryptjs');
 
 app.use(cors());
 app.use(express.json());
-mongoose.connect('mongodb://localhost:27017/share-clud')
+mongoose.connect('mongodb://localhost:27017/share-club')
 
 app.post('/api/registeradmin',async (req,res)=>{
     console.log(req.body)
@@ -28,7 +28,7 @@ app.post('/api/registeradmin',async (req,res)=>{
 
 app.post('/api/login',async (req,res)=>{
    const user=await User.findOne({
-    name:req.body.name,
+    email:req.body.email,
     // password:req.body.password,
    })
    if(!user){
