@@ -31,7 +31,8 @@ export default function Login() {
 
   async function loginUser(event) {
       event.preventDefault()
-
+      // http://localhost:420/api/login
+      // http://10.0.15.122:6600/auth/login
       const response = await fetch('http://localhost:420/api/login', {
           method: 'POST',
           headers: {
@@ -40,6 +41,7 @@ export default function Login() {
           body: JSON.stringify({
               email,
               password,
+              type:'admin'
           }),
       })
 
