@@ -31,7 +31,7 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, lastName: "ALi", firstName: "Mujtaba", age: 35,phone:'+923046511650',email:'mujiroy01@gmai.com' },
+  { id: 1, lastName: "ALi", firstName: "Mujtaba", age: 35,phone:'+923046511650',email:'mujiroy01@gmai.com', },
   { id: 2, lastName: "Stark", firstName: "Harvey", age: 42,phone:'+020123',email:'muji@gmai.com' },
   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45,phone:'+020123',email:'muji@gmai.com' },
   { id: 4, lastName: "Stark", firstName: "s", age: 16,phone:'+020123',email:'muji@gmai.com' },
