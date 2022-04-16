@@ -114,7 +114,7 @@ function ResponsiveDrawer(props) {
         <ListItemText primary="Settings" />
       </ListItemButton>
       </Link>
-
+      <br/>
       <Link to='/'>
       <ListItemButton>
         <ListItemIcon>
@@ -227,8 +227,10 @@ function ResponsiveDrawer(props) {
                   Settings
                 </MenuItem>
                 </Link>
+            
                 <Link to='/'>
                 <MenuItem>
+                
                   <ListItemIcon>
                     <Logout fontSize="small" />
                   </ListItemIcon>
