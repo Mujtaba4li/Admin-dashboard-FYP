@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+// import { faker } from "@faker-js/faker";
 // import faker from 'faker';
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,22 +10,25 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Avatar,
-  Grid,
-  Typography,
+  // Avatar,
+  // Grid,
+  // Typography,
   TablePagination,
   TableFooter,
-  Button,
+  // Button,
 } from "@material-ui/core";
+import { useSelector,Provider } from "react-redux";
+
+// import getDonor from '../../actions/donor'
 
 const useStyles = makeStyles((theme) => ({
   table: {
-    minWidth: -100,
+    minWidth: 10,
   },
   tableContainer: {
       borderRadius: 15,
       // margin: '10px 10px',
-      maxWidth: 1090
+      maxWidth: 1190
   },
   tableHeaderCell: {
       fontWeight: 'bold',
@@ -52,34 +55,28 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-let USERS = [],
-  STATUSES = ["Active", "Pending", "Blocked"];
-for (let i = 0; i < 14; i++) {
-  USERS[i] = {
-    name: faker.name.findName(),
-    email: faker.internet.email(),
-    phone: faker.phone.phoneNumber(),
-    jobTitle: faker.name.jobTitle(),
-    company: faker.company.companyName(),
-    joinDate: faker.date.past().toLocaleDateString("en-US"),
-    status: STATUSES[Math.floor(Math.random() * STATUSES.length)],
-  };
-}
+// let USERS = [],
+//   STATUSES = ["Active", "Pending", "Blocked"];
+// for (let i = 0; i < 14; i++) {
+//   USERS[i] = {
+//     name: faker.name.findName(),
+//     email: faker.internet.email(),
+//     phone: faker.phone.phoneNumber(),
+//     jobTitle: faker.name.jobTitle(),
+//     company: faker.company.companyName(),
+//     joinDate: faker.date.past().toLocaleDateString("en-US"),
+//     status: STATUSES[Math.floor(Math.random() * STATUSES.length)],
+//   };
+// }
 
-console.log(USERS);
-export default function ManageDonar(donor) {
+// console.log(USERS);
+export default function ManageDonar() {
+  const DONORS=useSelector((state)=>state.donors);
+<Provider>
+  console.log(DONORS);
+
+  </Provider>
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
-  const handleChangePage = (event, newPage) => { 
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
@@ -96,6 +93,13 @@ export default function ManageDonar(donor) {
           </TableRow>
         </TableHead>
         <TableBody >
+
+
+
+
+
+
+          {/* /** 
           {USERS.slice(
             page * rowsPerPage,
             page * rowsPerPage + rowsPerPage
@@ -103,18 +107,7 @@ export default function ManageDonar(donor) {
             <TableRow key={row.name}>
               <TableCell>
                 <Grid container>
-                  {/* <Grid item lg={2}>
-                    <Avatar alt={row.name} src="." className={classes.avatar} />
-                  </Grid>
-                  <Grid item lg={10}>
-                    <Typography className={classes.name}>{row.name}</Typography>
-                    <Typography color="textSecondary" variant="body2">
-                      {row.email}
-                    </Typography>
-                    <Typography color="textSecondary" variant="body2">
-                      {row.phone}
-                    </Typography>
-                  </Grid> */}
+              
                 {donor.name}
                 </Grid>
               </TableCell>
@@ -162,16 +155,19 @@ export default function ManageDonar(donor) {
               </TableCell>
             </TableRow>
           ))}
+
+ */}
+
         </TableBody>
         <TableFooter>
           <TablePagination
-            rowsPerPageOptions={[5, 10, 15]}
-            component="div"
-            count={USERS.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onChangePage={handleChangePage}
-            onChangeRowsPerPage={handleChangeRowsPerPage}
+            // rowsPerPageOptions={[5, 10, 15]}
+            // component="div"
+            // count={USERS.length}
+            // rowsPerPage={rowsPerPage}
+            // page={page}
+            // onChangePage={handleChangePage}
+            // onChangeRowsPerPage={handleChangeRowsPerPage}
           />
         </TableFooter>
       </Table>
