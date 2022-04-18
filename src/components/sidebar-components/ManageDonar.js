@@ -20,17 +20,18 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   table: {
-    minWidth: 650,
+    minWidth: -100,
   },
   tableContainer: {
       borderRadius: 15,
-      margin: '10px 10px',
-      maxWidth: 950
+      // margin: '10px 10px',
+      maxWidth: 1090
   },
   tableHeaderCell: {
       fontWeight: 'bold',
-      backgroundColor: theme.palette.primary.dark,
-      color: theme.palette.getContrastText(theme.palette.primary.dark)
+      backgroundColor: '#F5F5F5',
+      color:'#606060',
+      // color: theme.palette.getContrastText(theme.palette.primary.dark)
   },
   avatar: {
       backgroundColor: theme.palette.primary.light,
@@ -66,12 +67,12 @@ for (let i = 0; i < 14; i++) {
 }
 
 console.log(USERS);
-export default function ManageDonar() {
+export default function ManageDonar(donor) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (event, newPage) => { 
     setPage(newPage);
   };
 
@@ -102,7 +103,7 @@ export default function ManageDonar() {
             <TableRow key={row.name}>
               <TableCell>
                 <Grid container>
-                  <Grid item lg={2}>
+                  {/* <Grid item lg={2}>
                     <Avatar alt={row.name} src="." className={classes.avatar} />
                   </Grid>
                   <Grid item lg={10}>
@@ -113,7 +114,8 @@ export default function ManageDonar() {
                     <Typography color="textSecondary" variant="body2">
                       {row.phone}
                     </Typography>
-                  </Grid>
+                  </Grid> */}
+                {donor.name}
                 </Grid>
               </TableCell>
               <TableCell>
