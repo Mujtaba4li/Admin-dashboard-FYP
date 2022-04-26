@@ -1,5 +1,5 @@
 // import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
-import {FETCH_DONOR,DELETE_DONOR} from '../constants/actionTypes'
+import {FETCH_DONOR,DELETE_DONOR,APPROVE_DONOR} from '../constants/actionTypes'
 
 import * as api from '../api/index.js';
 //Get donors
@@ -18,13 +18,25 @@ export const deleteDonor = (id) => async (dispatch) => {
     try {
   
       dispatch({ type: DELETE_DONOR, payload: id });
-      await api.deleteDonorAPI(id);
+      await api.deleteDonorAPI(id)
   
     } catch (error) {
       console.log(error.message);
     }
   };
   
+
+  //approve donor
+  export const approveDonor=(id)=>async(dispatch)=>{
+    try {
+      dispatch({type:APPROVE_DONOR, payload:id});
+      await api.approveDonorAPI(id);
+      alert("Donor approve successfully")
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 // export default getDonor;
 
 // export const getPosts = () => async (dispatch) => {

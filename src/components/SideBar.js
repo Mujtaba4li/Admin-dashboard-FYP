@@ -32,7 +32,7 @@ import '../assets/css/myTailwind.css';
 
 // SideBar components
 import Dashboard from './sidebar-components/Dashboard';
-import ManageDonar from './sidebar-components/ManageDonar';
+import ManageDonor from './sidebar-components/ManageDonor';
 import ManageNeedy from './sidebar-components/ManageNeedy';
 import Notification from './sidebar-components/Notification';
 import SettingsComponent from './sidebar-components/Settings'
@@ -293,7 +293,7 @@ function ResponsiveDrawer(props) {
         <Toolbar />
         
         <Switch>
-          <Route path={`${props.match.path}/manage_donor`} component={ManageDonar} />
+          <Route path={`${props.match.path}/manage_donor`} component={ManageDonor} />
           <Route path={`${props.match.path}/manage_needy`} component={ManageNeedy} />
           <Route path={`${props.match.path}/settings`}component={SettingsComponent} />
           <Route path={`${props.match.path}/notifications`}  component={Notification} />

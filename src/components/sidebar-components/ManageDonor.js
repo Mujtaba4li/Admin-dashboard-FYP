@@ -16,7 +16,7 @@ import {
 
 } from "@material-ui/core";
 
-import {deleteDonor} from '../../actions/donor'
+import {deleteDonor,approveDonor} from '../../actions/donor'
 //
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ManageDonar() {
+export default function ManageDonor() {
   const donorsData = useSelector((state) => state.donor);
   const dispatch=useDispatch();
   console.log(donorsData);
@@ -122,7 +122,6 @@ export default function ManageDonar() {
                   variant="outlined"
                   size="small"
                   onClick={() => {
-                    
                     dispatch(deleteDonor(row._id))
                   }}
                 >
@@ -137,6 +136,9 @@ export default function ManageDonar() {
                     marginLeft: "3px",
                   }}
                   size="small"
+                  onClick={() => {
+                    dispatch(approveDonor(row._id))
+                  }}
                 >
                   Approve
                 </Button>
