@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import donor from './donor'
+import donor from './donorReducer'
 export default combineReducers({
 donor,
 });
