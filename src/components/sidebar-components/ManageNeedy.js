@@ -1,62 +1,163 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Button } from "@material-ui/core";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Grid,
+  Typography,
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+  Button,
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+} from "@material-ui/core";
+
+import {actionCreatorsNeedy} from '../../actions/index'
+//
+const useStyles = makeStyles((theme) => ({
+  table: {
+    minWidth: 10,
+  },
+  tableContainer: {
+    borderRadius: 15,
+    // margin: '10px 10px',
+    maxWidth: 1190,
+  },
+  tableHeaderCell: {
+    fontWeight: "bold",
+    backgroundColor: "#F5F5F5",
+    color: "#606060",
+    // color: theme.palette.getContrastText(theme.palette.primary.dark)
+  },
+  avatar: {
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.getContrastText(theme.palette.primary.light),
+  },
+  name: {
+    fontWeight: "bold",
+    color: theme.palette.secondary.dark,
+  },
+  status: {
+    fontWeight: "bold",
+    fontSize: "0.75rem",
+    color: "white",
+    backgroundColor: "grey",
+    borderRadius: 8,
+    padding: "3px 10px",
+    display: "inline-block",
+  },
+}));
+
 
 export default function ManageNeedy() {
+  const neediesData = useSelector((state) => state.needy);
+  const dispatch=useDispatch();
+  console.log(neediesData);
+  const classes = useStyles();
+
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer component={Paper} className={classes.tableContainer}>
+      <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell className={classes.tableHeaderCell}>Name</TableCell>
+            <TableCell className={classes.tableHeaderCell}>Email</TableCell>
+            <TableCell className={classes.tableHeaderCell}>
+              {" "}
+              Password{" "}
+            </TableCell>
+            <TableCell className={classes.tableHeaderCell}>City</TableCell>
+            <TableCell className={classes.tableHeaderCell}> State </TableCell>
+            <TableCell className={classes.tableHeaderCell}>Country</TableCell>
+            <TableCell align="center" className={classes.tableHeaderCell}>
+              Status
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
+          {/* <TableRow> */}
+          {/* <TableCell component="th" scope="row">
+              {neediesData.map((element) => {
+            {return <div key={element._id}>{element.title}</div>;}
+          })}
+           </TableCell>
+          </TableRow> */}
+
+          {neediesData.map((row) => (
+            <TableRow key={row._id}>
+              <TableCell>
+                {/* <Avatar/> */}
+                <Grid container>{row.creator}</Grid>
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell  align="right">
-                <Button variant="outlined" size="small" /* style={{position:'absolute'}}*/ >
-                  Outlined
+              <TableCell>
+                <Typography color="primary" variant="subtitle2">
+                  {row.message}
+                </Typography>
+              </TableCell>
+
+              {/* //3 */}
+              <TableCell>
+                <Grid container>{row.creator}</Grid>
+              </TableCell>
+
+              {/* 4 */}
+              <TableCell>
+                <Grid container>{row.creator}</Grid>
+              </TableCell>
+              {/* 5 */}
+
+              <TableCell>
+                <Grid container>{row.creator}</Grid>
+              </TableCell>
+              {/* 6 */}
+              <TableCell>
+                <Grid container>{row.creator}</Grid>
+              </TableCell>
+              <TableCell>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  onClick={() => {
+                    // dispatch(deleteDonor(row._id))
+                    dispatch(actionCreatorsNeedy.deleteNeedy(row._id));
+                  }}
+                >
+                  Reject
                 </Button>
 
-                <Button variant="contained" color="success" size="small">
-                  Success
+                <Button
+                  variant="contained"
+                  style={{
+                    color: "white",
+                    backgroundColor: "green",
+                    marginLeft: "3px",
+                  }}
+                  size="small"
+                  onClick={() => {
+                    dispatch(actionCreatorsNeedy.approveNeedy(row._id));
+                  }}
+                >
+                  Approve
                 </Button>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
+        {/* <TableFooter>
+          <TablePagination
+          rowsPerPageOptions={[5, 10, 15]}
+          component="div"
+          count={USERS.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onChangePage={handleChangePage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </TableFooter> */}
       </Table>
     </TableContainer>
   );

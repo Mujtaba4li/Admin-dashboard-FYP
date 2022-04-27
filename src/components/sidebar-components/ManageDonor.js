@@ -16,8 +16,9 @@ import {
 
 } from "@material-ui/core";
 
-import {deleteDonor,approveDonor} from '../../actions/donor'
-//
+// import {deleteDonor,approveDonor} from '../../actions/donor'
+import {actionCreatorsDonor} from '../../actions/index'
+
 const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 10,
@@ -122,7 +123,7 @@ export default function ManageDonor() {
                   variant="outlined"
                   size="small"
                   onClick={() => {
-                    dispatch(deleteDonor(row._id))
+                    dispatch(actionCreatorsDonor.deleteDonor(row._id))
                   }}
                 >
                   Reject
@@ -137,7 +138,8 @@ export default function ManageDonor() {
                   }}
                   size="small"
                   onClick={() => {
-                    dispatch(approveDonor(row._id))
+                  
+                    dispatch(actionCreatorsDonor.approveDonor(row._id));
                   }}
                 >
                   Approve
@@ -161,9 +163,3 @@ export default function ManageDonor() {
     </TableContainer>
   );
 }
-
-// const mapStateToProps = (state) => ({
-//   cashiers: state.donor.donors
-// })
-
-// export default connect(mapStateToProps, { getDonor })(ManageDonar);

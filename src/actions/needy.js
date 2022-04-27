@@ -1,6 +1,6 @@
 import {FETCH_NEEDY, DELETE_NEEDY, APPROVE_NEEDY} from "../constants/actionTypes";
 import * as api from '../api/index.js';
-//Get donors
+//Get needy
 export const getNeedy=()=> async(dispatch)=>{
     try {
         const{data}=await api.fetchNeedyAPI();
@@ -11,7 +11,7 @@ export const getNeedy=()=> async(dispatch)=>{
 }
 
 
-//Delete Donor
+//Delete Needy
 export const deleteNeedy = (id) => async (dispatch) => {
     try {
   
@@ -24,7 +24,7 @@ export const deleteNeedy = (id) => async (dispatch) => {
   };
   
 
-  //approve donor
+  //approve needy 
   export const approveNeedy=(id)=>async(dispatch)=>{
     try {
       dispatch({type:APPROVE_NEEDY, payload:id});

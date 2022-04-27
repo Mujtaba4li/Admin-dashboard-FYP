@@ -1,4 +1,3 @@
-// import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
 import {FETCH_DONOR,DELETE_DONOR,APPROVE_DONOR} from '../constants/actionTypes'
 
 import * as api from '../api/index.js';
