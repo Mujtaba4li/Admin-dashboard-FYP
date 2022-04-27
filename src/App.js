@@ -1,11 +1,12 @@
-import './App.css';
+
 import Login from './components/Login';
 import SideBar from './components/SideBar';
 import AdminRegister from './components/notRequire/AdminRegister';
 import LoginAdmin from './components/notRequire/LoginAdmin';
-import {useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import React,{useState, useEffect} from 'react';
 import { getDonor } from './actions/donor';
+import { getNeedy } from './actions/needy';
 import { hot } from 'react-hot-loader/root';
 
 
@@ -16,13 +17,12 @@ import {
 
 } from "react-router-dom";
 function App() {
-  // const state=useSelector((state)=>state.donor);
-  // console.log(state);
 
   const [CurrentId, setCurrentId] = useState(0);
   const dispatch=useDispatch();
   useEffect(()=>{
     dispatch(getDonor());
+    dispatch(getNeedy());
   },[CurrentId,dispatch])
 
 

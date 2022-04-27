@@ -11,13 +11,11 @@ import {
   Paper,
   Grid,
   Typography,
-
   Button,
-
 } from "@material-ui/core";
+import {fetchNeedyAPI} from './../../api/index'
+import {actionCreatorsNeedy} from '../../actions/index';
 
-import {actionCreatorsNeedy} from '../../actions/index'
-//
 const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 10,
@@ -31,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     backgroundColor: "#F5F5F5",
     color: "#606060",
-    // color: theme.palette.getContrastText(theme.palette.primary.dark)
   },
   avatar: {
     backgroundColor: theme.palette.primary.light,
@@ -57,6 +54,7 @@ export default function ManageNeedy() {
   const neediesData = useSelector((state) => state.needy);
   const dispatch=useDispatch();
   console.log(neediesData);
+
   const classes = useStyles();
 
   return (

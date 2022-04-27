@@ -4,6 +4,8 @@ import * as api from '../api/index.js';
 export const getNeedy=()=> async(dispatch)=>{
     try {
         const{data}=await api.fetchNeedyAPI();
+        console.log("I am needy")
+
         dispatch({type:FETCH_NEEDY,payload:data});
     } catch (error) {
         console.log(error.message);

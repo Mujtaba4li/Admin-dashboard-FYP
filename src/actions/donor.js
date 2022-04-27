@@ -5,6 +5,7 @@ import * as api from '../api/index.js';
 export const getDonor=()=> async(dispatch)=>{
     try {
         const{data}=await api.fetchDonor();
+        console.log("I am donor")
         dispatch({type:FETCH_DONOR,payload:data});
     } catch (error) {
         console.log(error.message);
