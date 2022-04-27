@@ -11,12 +11,9 @@ import {
   Paper,
   Grid,
   Typography,
-
   Button,
 
 } from "@material-ui/core";
-
-// import {deleteDonor,approveDonor} from '../../actions/donor'
 import {actionCreatorsDonor} from '../../actions/index'
 
 const useStyles = makeStyles((theme) => ({
