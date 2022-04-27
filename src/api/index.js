@@ -11,3 +11,7 @@ export const approveDonorAPI=(id)=>axios.patch(`${url}/${id}`);
 
 
 //Needy APIs
+
+export const  fetchNeedyAPI=()=>axios.get(url);
+export const deleteNeedyAPI=(id)=>axios.delete(`${url}/${id}`);
+export const approveNeedyAPI=(id)=>axios.patch(`${url}/${id}`);

@@ -1,1 +1,1 @@
-export * as actionCreators from "./donor"
+export * as actionCreatorsDonor from "./donor"
