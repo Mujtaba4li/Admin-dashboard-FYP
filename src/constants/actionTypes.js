@@ -13,4 +13,6 @@ export const FETCH_NEEDY='FETCH_NEEDY';
 export const DELETE_NEEDY='DELETE_NEEDY';
 export const APPROVE_NEEDY='APPROVE _NEEDY';
 
+//Categories
+export const FETCH_CATEGORIES='FETCH_CATEGORIES';
 

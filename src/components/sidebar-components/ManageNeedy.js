@@ -13,7 +13,6 @@ import {
   Typography,
   Button,
 } from "@material-ui/core";
-import {fetchNeedyAPI} from './../../api/index'
 import {actionCreatorsNeedy} from '../../actions/index';
 
 const useStyles = makeStyles((theme) => ({
@@ -65,8 +64,7 @@ export default function ManageNeedy() {
             <TableCell className={classes.tableHeaderCell}>Name</TableCell>
             <TableCell className={classes.tableHeaderCell}>Email</TableCell>
             <TableCell className={classes.tableHeaderCell}>
-              {" "}
-              Password{" "}
+            Phone#
             </TableCell>
             <TableCell className={classes.tableHeaderCell}>City</TableCell>
             <TableCell className={classes.tableHeaderCell}> State </TableCell>
@@ -89,31 +87,31 @@ export default function ManageNeedy() {
             <TableRow key={row._id}>
               <TableCell>
                 {/* <Avatar/> */}
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.name}</Grid>
               </TableCell>
               <TableCell>
                 <Typography color="primary" variant="subtitle2">
-                  {row.message}
+                  {row.email}
                 </Typography>
               </TableCell>
 
               {/* //3 */}
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.phone}</Grid>
               </TableCell>
 
               {/* 4 */}
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.city}</Grid>
               </TableCell>
               {/* 5 */}
 
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.state}</Grid>
               </TableCell>
               {/* 6 */}
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.country}</Grid>
               </TableCell>
               <TableCell>
                 <Button

@@ -64,12 +64,12 @@ export default function ManageDonor() {
           <TableRow>
             <TableCell className={classes.tableHeaderCell}>Name</TableCell>
             <TableCell className={classes.tableHeaderCell}>Email</TableCell>
-            <TableCell className={classes.tableHeaderCell}>
+            {/* <TableCell className={classes.tableHeaderCell}>
               {" "}
               Password{" "}
-            </TableCell>
+            </TableCell> */}
             <TableCell className={classes.tableHeaderCell}>City</TableCell>
-            <TableCell className={classes.tableHeaderCell}> State </TableCell>
+            <TableCell className={classes.tableHeaderCell}> Address </TableCell>
             <TableCell className={classes.tableHeaderCell}>Country</TableCell>
             <TableCell align="center" className={classes.tableHeaderCell}>
               Status
@@ -89,31 +89,31 @@ export default function ManageDonor() {
             <TableRow key={row._id}>
               <TableCell>
                 {/* <Avatar/> */}
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.name}</Grid>
               </TableCell>
               <TableCell>
                 <Typography color="primary" variant="subtitle2">
-                  {row.message}
+                  {row.email}
                 </Typography>
               </TableCell>
 
               {/* //3 */}
-              <TableCell>
-                <Grid container>{row.creator}</Grid>
-              </TableCell>
+              {/* <TableCell>
+                <Grid container>{row.password}</Grid>
+              </TableCell> */}
 
               {/* 4 */}
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.city}</Grid>
               </TableCell>
               {/* 5 */}
 
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.address}</Grid>
               </TableCell>
               {/* 6 */}
               <TableCell>
-                <Grid container>{row.creator}</Grid>
+                <Grid container>{row.country}</Grid>
               </TableCell>
               <TableCell>
                 <Button
