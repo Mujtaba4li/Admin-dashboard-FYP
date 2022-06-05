@@ -62,7 +62,7 @@ function ResponsiveDrawer(props) {
   };
 
   const drawer = (
-    <div>
+    <div >
       <Toolbar style={{ backgroundColor: "blue" }} />
       <Divider />
       <Link to="/dashboard">
@@ -79,7 +79,7 @@ function ResponsiveDrawer(props) {
           <ListItemIcon>
             <DonorIcon />
           </ListItemIcon>
-          <ListItemText primary="Manage Donor" />
+          <ListItemText   primary="Manage Donor" />
         </ListItemButton>
       </Link>
 

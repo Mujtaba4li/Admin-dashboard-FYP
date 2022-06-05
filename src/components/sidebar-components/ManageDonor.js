@@ -68,7 +68,7 @@ export default function ManageDonor() {
               {" "}
               Password{" "}
             </TableCell> */}
-            <TableCell className={classes.tableHeaderCell}>City</TableCell>
+            <TableCell className={classes.tableHeaderCell}>Phone#</TableCell>
             <TableCell className={classes.tableHeaderCell}> Address </TableCell>
             <TableCell className={classes.tableHeaderCell}>Country</TableCell>
             <TableCell align="center" className={classes.tableHeaderCell}>
@@ -104,7 +104,7 @@ export default function ManageDonor() {
 
               {/* 4 */}
               <TableCell>
-                <Grid container>{row.city}</Grid>
+                <Grid container>{row.phone}</Grid>
               </TableCell>
               {/* 5 */}
 

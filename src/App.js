@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import React,{useState, useEffect} from 'react';
 import { getDonor } from './actions/donor';
 import { getNeedy } from './actions/needy';
+import {getCategories} from './actions/categories'
 import { hot } from 'react-hot-loader/root';
 
 
@@ -23,6 +24,7 @@ function App() {
   useEffect(()=>{
     dispatch(getDonor());
     dispatch(getNeedy());
+    dispatch(getCategories());
   },[CurrentId,dispatch])
 
 
