@@ -8,7 +8,6 @@ import React,{useState, useEffect} from 'react';
 import { getDonor } from './actions/donor';
 import { getNeedy } from './actions/needy';
 import {getCategories} from './actions/categories'
-import { hot } from 'react-hot-loader/root';
 
 
 import {
@@ -46,4 +45,4 @@ function App() {
 }
 
 // export default App;
-export default hot(App);
+export default App;

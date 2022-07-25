@@ -1,17 +1,16 @@
-import React from "react";
+import React,{useEffect, useRef} from "react";
 import "./../../assets/css/myTailwind.css";
 import { Box, Paper, Grid } from "@material-ui/core";
 import "../../assets/css/myTailwind.css";
+import lottie from 'lottie-web';
+import BarGraph from "./Graphs/BarGraph";
+
+
 export default function Dashboard() {
   let curDate = new Date();
-  // const weekDay=['Sunday','Monday','Tuesday','Thursday','Friday','Saturday']
-  // let month=curDate.getMonth();
-  // let day=weekDay[curDate.getDay()];
-  // let date=curDate.getDate();
   curDate = curDate.getHours();
   let greeting = "";
   const clrGreeting = {};
-
   if (curDate >= 1 && curDate <= 12) {
     greeting = "Good Morning!";
     clrGreeting.color = "green";
@@ -56,18 +55,33 @@ export default function Dashboard() {
   const date = d.getDate();
   const year = d.getFullYear();
 
+
+
+  //Lottie 
+const container=useRef(null);
+
+  useEffect(()=>{
+    lottie.loadAnimation({
+      container:container.current,
+      renderer:'svg',
+      loop:true,
+      autoplay:true,
+      animationData:require('../../assets/json/welcome.json')
+    })
+  })
+
   return (
     <>
       <Box>
         {/* Line 1 */}
         <Paper className=" h-16">
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid  className=" m-5" item xs={6}>
               <div>
-                <spain>{day}   </spain>
-                <spain>{month}</spain>
-                <spain> {date}, </spain>
-                <spain>{year}</spain>
+                <span>{day}   </span>
+                <span>{month}</span>
+                <span> {date}, </span>
+                <span>{year}</span>
               </div>
               
               <h1>
@@ -75,7 +89,7 @@ export default function Dashboard() {
               </h1>
             </Grid>
             <Grid item xs={6}>
-              worldfffffffffffffffffffffff
+       <div className="container"></div>
             </Grid>
           </Grid>
         </Paper>
@@ -96,7 +110,8 @@ export default function Dashboard() {
 
         {/* Line 3 */}
         <Paper>
-          <div className=" m-5">Graph</div>
+          <div className=" m-5"><BarGraph/></div>
+         
         </Paper>
       </Box>
     </>
