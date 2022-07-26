@@ -7,6 +7,8 @@ import lottie from 'lottie-web';
 import LineGraph from "./Graphs/LineGraph";
 import DonuteGraph from "./Graphs/DonuteGraph";
 import BarGraph from "./Graphs/BarGraph";
+import hello from "./../../assets/gif/hello.gif"
+
 
 export default function Dashboard() {
   let curDate = new Date();
@@ -93,8 +95,7 @@ const container=useRef(null);
             </Grid>
             <Grid item  className="head m-5"  xs={6}>
        <div className="container">
-
-        
+       <img src={hello} alt="loading..." />
        </div>
             </Grid>
           </Grid>
