@@ -1,7 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import {
-    defaults,
+    // defaults,
   Chart,
   CategoryScale,
   LinearScale,
@@ -17,6 +17,7 @@ import {
 } from "chart.js";
 Chart.register(
   Legend,
+
   Filler,
   CategoryScale,
   LinearScale,
@@ -48,7 +49,7 @@ export default function DonuteGraph() {
           ],
           datasets: [
             {
-              label: "# of Votes",
+              label: "Donations",
               data: [19, 10, 15, 7,3],
               backgroundColor: [
                 'rgba(255, 99, 132)',
@@ -71,21 +72,11 @@ export default function DonuteGraph() {
               tension: "0.3",
             },
 
-            // {
-            //   label: "# of caster",
-            //   data: [2, 9, 8, 18, 12, 15, 12, 9, 13, 15, 0, 4],
-            //   backgroundColor: "rgba(54, 162, 235, 0.2)",
-
-            //   borderColor: "rgba(54, 162, 235, 1)",
-
-            //   borderWidth: 1,
-            //   fill: "origin",
-            //   tension: "0.3",
-            // },
+        
           ],
         }}
-        height={200}
-        width={400}
+        height={150}
+        width={300}
         options={{
           maintainAspectRatio: false,
           scales: {
@@ -97,18 +88,20 @@ export default function DonuteGraph() {
               }
             },
           },
-          legend:{
-            label:{
-                font:2
-            }
-          },
+        
 
           plugins: {
             title: {
                 display: true,
-                text: 'Number of donations',
+                text: 'Things donated by category',
                
-            }
+            },
+            legend:{
+            label:{
+                font:2
+            },
+            position:'right'
+          },
         }
 
         }}

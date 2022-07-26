@@ -2,9 +2,11 @@ import React,{useEffect, useRef} from "react";
 import "./../../assets/css/myTailwind.css";
 import { Box, Paper, Grid } from "@material-ui/core";
 import "../../assets/css/myTailwind.css";
+import "../../assets/css/Dashboard.css";
 import lottie from 'lottie-web';
-import BarGraph from "./Graphs/BarGraph";
+import LineGraph from "./Graphs/LineGraph";
 import DonuteGraph from "./Graphs/DonuteGraph";
+import BarGraph from "./Graphs/BarGraph";
 
 export default function Dashboard() {
   let curDate = new Date();
@@ -74,22 +76,26 @@ const container=useRef(null);
     <>
       <Box>
         {/* Line 1 */}
-        <Paper className=" h-16">
+        <Paper>
           <Grid container spacing={2}>
-            <Grid  className=" m-5" item xs={6}>
-              <div>
+            <Grid  className="head m-5" item xs={6}>
+              <div className=" ml-5 text-xs">
                 <span>{day}   </span>
                 <span>{month}</span>
                 <span> {date}, </span>
                 <span>{year}</span>
               </div>
               
-              <h1>
+              
+              <h1 className='greeting'>
                 Hello Sir, <span style={clrGreeting}>{greeting}</span>{" "}
               </h1>
             </Grid>
-            <Grid item xs={6}>
-       <div className="container"></div>
+            <Grid item  className="head m-5"  xs={6}>
+       <div className="container">
+
+        
+       </div>
             </Grid>
           </Grid>
         </Paper>
@@ -106,14 +112,14 @@ const container=useRef(null);
           </Grid>
           <Grid item xs={6}>
             <Paper>
-              <div className=" m-5">Heelo world</div>
+              <div className=" m-5"><BarGraph/></div>
             </Paper>
           </Grid>
         </Grid>
 
         {/* Line 3 */}
         <Paper>
-          <div className=" m-5"><BarGraph/></div>
+          <div className=" m-5"><LineGraph/></div>
          
         </Paper>
       </Box>

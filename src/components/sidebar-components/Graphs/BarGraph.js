@@ -1,5 +1,5 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
   Chart,
   CategoryScale,
@@ -27,14 +27,11 @@ Chart.register(
   LineController,
   Tooltip
 );
-
-// import { Chart, LineController, LineElement, PointElement, LinearScale,  } from `chart.js`
-
-// Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+Chart.defaults.plugins.legend.position='right';
 export default function BarChart() {
   return (
     <div>
-      <Line
+      <Bar
         data={{
           labels: [
             "January",
@@ -50,48 +47,63 @@ export default function BarChart() {
           datasets: [
             {
               label: "# of Votes",
-              data: [12, 19, 13, 15, 7, 3, 12, 19],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              data: [ 29,15, 25, 20, 2, 25,15,29],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.9)',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+                'rgba(75, 192, 192, 0.9)',
+                'rgba(153, 102, 255, 0.9)',
+                'rgba(54, 162, 235, 0.9)',
 
-              borderColor: "rgba(255, 99, 132, 1)",
-
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(54, 162, 235, 1)',
+                
+            ],
               borderWidth: 1,
               fill: "origin",
               tension: "0.3",
             },
 
-            {
-              label: "# of caster",
-              data: [2, 9, 8, 18, 12, 15, 12, 9, 13, 15, 0, 4],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-
-              borderColor: "rgba(54, 162, 235, 1)",
-
-              borderWidth: 1,
-              fill: "origin",
-              tension: "0.3",
-            },
+          
           ],
         }}
-        height={400}
-        width={600}
+        height={150}
+        width={300}
         options={{
           maintainAspectRatio: false,
           scales: {
             y: {
               beginAtZero: true,
+              grid:{
+                display:false
+                
+              }
             },
+           
+            
+            title:{
+              display:false
+            }
           },
-
+          
+     
           plugins: {
             title: {
                 display: true,
-                text: 'Daily registration of USER on application',
-                padding: {
-                    top: 10,
-                    bottom: 30
-                }
+                text: 'Number of Donations per month',
+               
+            },
+            legend:{
+              display:false,
             }
+            
         }
 
         }}
