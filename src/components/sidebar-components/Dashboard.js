@@ -4,7 +4,7 @@ import { Box, Paper, Grid } from "@material-ui/core";
 import "../../assets/css/myTailwind.css";
 import lottie from 'lottie-web';
 import BarGraph from "./Graphs/BarGraph";
-
+import DonuteGraph from "./Graphs/DonuteGraph";
 
 export default function Dashboard() {
   let curDate = new Date();
@@ -98,7 +98,10 @@ const container=useRef(null);
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Paper>
-              <div className=" m-5">Heelo world</div>
+              <div className=" m-5">
+               
+                <DonuteGraph/>
+              </div>
             </Paper>
           </Grid>
           <Grid item xs={6}>
