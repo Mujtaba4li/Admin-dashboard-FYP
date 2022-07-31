@@ -1,7 +1,4 @@
 import * as React from "react";
-
-// import { styled } from '@mui/material/styles';
-// import Box from '@mui/material/Box';
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -26,34 +23,35 @@ export default function Login() {
   };
 
   // Authentication start
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   async function loginUser(event) {
-      event.preventDefault()
-      // http://localhost:420/api/login
-      // http://10.0.15.122:6600/auth/login
-      const response = await fetch('http://localhost:420/api/login', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              email,
-              password,
-              type:'admin'
-          }),
-      })
+    event.preventDefault();
+    // http://localhost:420/api/login
+    // http://10.0.15.122:6600/auth/login
+    // const response = await fetch("http://localhost:420/api/login", {
+    const response = await fetch("https://fyyp.herokuapp.com//auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        type: "admin",
+      }),
+    });
 
-      const data = await response.json()
+    const data = await response.json();
 
-      if (data.user) {
-          localStorage.setItem('token', data.user)
-          alert('Login successful')
-          window.location.href = '/dashboard'
-      } else {
-          alert('Please check your username and password')
-      }
+    if (data.user) {
+      localStorage.setItem("token", data.user);
+      alert("Login successful");
+      window.location.href = "/dashboard";
+    } else {
+      alert("Please check your username and password");
+    }
   }
   // Authentication END
 

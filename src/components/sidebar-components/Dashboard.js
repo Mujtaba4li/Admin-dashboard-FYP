@@ -23,7 +23,7 @@ export default function Dashboard() {
     greeting = "Good Evening!";
     clrGreeting.color = "purple";
   } else {
-    clrGreeting.color = "black";
+    clrGreeting.color = "linear-gradient(to top right, #009900 0%, #66ff99 100%)";
     greeting = "Good Night!";
   }
 
@@ -74,7 +74,7 @@ export default function Dashboard() {
               </div>
 
               <h1 className="greeting">
-                Hello Sir, <span style={clrGreeting}>{greeting}</span>{" "}
+                Hello Sir, <span></span> <span style={clrGreeting}>{greeting}</span>{" "}
               </h1>
             </Grid>
             <Grid item className="head m-5" xs={6}>

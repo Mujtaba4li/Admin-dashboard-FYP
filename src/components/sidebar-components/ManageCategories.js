@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "../../assets/css/myTailwind.css";
+import "../../assets/css/style.css";
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
@@ -102,10 +104,11 @@ export default function ManageCategories() {
             onChange={(e) => setPostData({ ...postData, name: e.target.value })}
           />
           <Button
-            className=" left-3 "
+            className="left-3 btn-setting"
             variant="contained"
             size="medium"
             type="submit"
+         
            >
 
             Add Category

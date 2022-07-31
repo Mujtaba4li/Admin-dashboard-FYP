@@ -1,6 +1,6 @@
-import {FETCH_DONOR,DELETE_DONOR,APPROVE_DONOR} from '../constants/actionTypes'
+ import {FETCH_DONOR,DELETE_DONOR,APPROVE_DONOR, BLOCK_DONOR,UNBLOCK_DONOR} from '../constants/actionTypes'
 
-import * as api from '../api/index.js';
+import * as api from '../api/index';
 //Get donors
 export const getDonor=()=> async(dispatch)=>{
     try {
@@ -36,56 +36,30 @@ export const deleteDonor = (id) => async (dispatch) => {
     } catch (error) {
       console.log(error.message);
     }
-  }
-// export default getDonor;
+  };
+  //Block donor
+  export const BlockDonor=(id)=>async(dispatch)=>{
+    try {
+      dispatch({type:BLOCK_DONOR,payload:id});
+      await api.BlockDonorAPI(id);
+      alert("Donor Block successfully");
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-// export const getPosts = () => async (dispatch) => {
-//   try {
-//     const { data } = await api.fetchPosts();
 
-//     dispatch({ type: FETCH_ALL, payload: data });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
 
-// export const createPost = (post) => async (dispatch) => {
-//   try {
-//     const { data } = await api.createPost(post);
+  //UnBlock donor
+  export const unblockDonor=(id)=>async(dispatch)=>{
+    try {
+      dispatch({type:UNBLOCK_DONOR,payload:id});
+      await api.UnblockDonorAPI(id);
+      alert("Donor UnBlock successfully");
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-//     dispatch({ type: CREATE, payload: data });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
-
-// export const updatePost = (id, post) => async (dispatch) => {
-//   try {
-//     const { data } = await api.updatePost(id, post);
-
-//     dispatch({ type: UPDATE, payload: data });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
-
-// export const likePost = (id) => async (dispatch) => {
-//   try {
-//     const { data } = await api.likePost(id);
-
-//     dispatch({ type: LIKE, payload: data });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
-
-// export const deletePost = (id) => async (dispatch) => {
-//   try {
-//     await api.deletePost(id);
-
-//     dispatch({ type: DELETE, payload: id });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
-// // 

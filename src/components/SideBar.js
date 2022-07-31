@@ -14,9 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import DashboardIcon from "@mui/icons-material/GridViewRounded";
 import NeedyIcon from "@mui/icons-material/VolunteerActivism";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import LogoutIcon from "@mui/icons-material/Logout";
-import SettingsIcon from "@mui/icons-material/Settings";
 import DonorIcon from "@mui/icons-material/VerifiedUser";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
@@ -28,14 +26,17 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import { Link, Switch, Route } from "react-router-dom";
 import ListItemButton from "@mui/material/ListItemButton";
 import "../assets/css/myTailwind.css";
-import AddCategoriesIcon from '@mui/icons-material/AddTask';
+import AddCategoriesIcon from "@mui/icons-material/AddTask";
 // SideBar components
 import Dashboard from "./sidebar-components/Dashboard";
 import ManageDonor from "./sidebar-components/ManageDonor";
 import ManageNeedy from "./sidebar-components/ManageNeedy";
-import Notification from "./sidebar-components/Notification";
-import SettingsComponent from "./sidebar-components/Settings";
 import ManageCategories from "./sidebar-components/ManageCategories";
+import './../assets/css/SideBar.css';
+import Blockdonoricon from '@mui/icons-material/AppBlocking';
+import Blockneedyicon from '@mui/icons-material/Block';
+import BlockNeedy from "./sidebar-components/BlockNeedy";
+import BlockDonor from "./sidebar-components/BlockDonor";
 
 // import Avatar from '@mui/material/Avatar';
 // import loginimg from '../assets/images/logo.png'
@@ -62,8 +63,8 @@ function ResponsiveDrawer(props) {
   };
 
   const drawer = (
-    <div >
-      <Toolbar style={{ backgroundColor: "blue" }} />
+    <div>
+      <Toolbar className="menu_bk" />
       <Divider />
       <Link to="/dashboard">
         <ListItemButton>
@@ -79,7 +80,7 @@ function ResponsiveDrawer(props) {
           <ListItemIcon>
             <DonorIcon />
           </ListItemIcon>
-          <ListItemText   primary="Manage Donor" />
+          <ListItemText primary="Manage Donor" />
         </ListItemButton>
       </Link>
 
@@ -101,21 +102,22 @@ function ResponsiveDrawer(props) {
         </ListItemButton>
       </Link>
 
-      <Link to={`${props.match.path}/notifications`}>
+      <Link to={`${props.match.path}/block_donor`}>
         <ListItemButton>
           <ListItemIcon>
-            <NotificationsIcon />
+       
+        <Blockdonoricon/>
           </ListItemIcon>
-          <ListItemText primary="Notifications" />
+          <ListItemText primary="Block/Unblock Donor" />
         </ListItemButton>
       </Link>
 
-      <Link to={`${props.match.path}/settings`}>
+      <Link to={`${props.match.path}/block_needy`}>
         <ListItemButton>
           <ListItemIcon>
-            <SettingsIcon />
+          <Blockneedyicon/>
           </ListItemIcon>
-          <ListItemText primary="Settings" />
+          <ListItemText primary="Block/Unblock Needy" />
         </ListItemButton>
       </Link>
       <br />
@@ -144,7 +146,7 @@ function ResponsiveDrawer(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar className="menu_bk">
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -159,7 +161,7 @@ function ResponsiveDrawer(props) {
           /> */}
 
           <Typography variant="h6" noWrap component="div">
-            <h1 className="font-extrabold tracking-widest">ShareClub</h1>
+            <h1 className="font-extrabold tracking-widest">NO POVERTY</h1>
           </Typography>
           <div className="right-2 absolute">
             <React.Fragment>
@@ -222,7 +224,7 @@ function ResponsiveDrawer(props) {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <MenuItem>
+                {/* <MenuItem>
                   <ManageAccountsIcon
                     fontSize="small"
                     style={{ marginRight: "12px" }}
@@ -237,7 +239,7 @@ function ResponsiveDrawer(props) {
                     </ListItemIcon>
                     Settings
                   </MenuItem>
-                </Link>
+                </Link> */}
 
                 <Link to="/">
                   <MenuItem>
@@ -315,12 +317,12 @@ function ResponsiveDrawer(props) {
           />
 
           <Route
-            path={`${props.match.path}/settings`}
-            component={SettingsComponent}
+            path={`${props.match.path}/block_needy`}
+            component={BlockNeedy}
           />
           <Route
-            path={`${props.match.path}/notifications`}
-            component={Notification}
+            path={`${props.match.path}/block_donor`}
+            component={BlockDonor}
           />
           <Route exact component={Dashboard} />
         </Switch>
