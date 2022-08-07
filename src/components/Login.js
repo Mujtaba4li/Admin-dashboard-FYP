@@ -30,8 +30,13 @@ export default function Login() {
     event.preventDefault();
     // http://localhost:420/api/login
     // http://10.0.15.122:6600/auth/login
+<<<<<<< HEAD
     const response = await fetch("http://localhost:420/api/login", {
     // const response = await fetch("https://fyyp.herokuapp.com/auth/login", {
+=======
+    // const response = await fetch("http://localhost:420/api/login", {
+    const response = await fetch("https://fyyp.herokuapp.com/auth/login", {
+>>>>>>> 1ba88e83f928cc360e6c168b8767adb39512bb59
       method: "POST",
       headers: {
         "Content-Type": "application/json",
