@@ -1,8 +1,9 @@
 import axios from 'axios';
 // const url='http://localhost:5000/api/posts';
 
-const baseURL='https://fyyp.herokuapp.com';
-// const baseURL='http://192.168.43.143:6600';
+// export const baseURL='https://fyyp.herokuapp.com';
+const baseURL='http://192.168.50.143:6600';
+
 
 const url=baseURL+'/Admin/donorrequests';
 const needyUrl=baseURL+'/Admin/needyrequests';
@@ -10,6 +11,8 @@ const rejectDonorApi=baseURL+'/Admin/rejectdonor';
 const approveDonorApi=baseURL+'/Admin/approvedonor';
 const approveNeedy=baseURL+'/Admin/approveneedy';
 const rejectNeedy=baseURL+'/admin/rejectneedy';
+const getAllDonor=baseURL+'/admin/donorusers';
+const getAllNeedy=baseURL+'/admin/needyusers';
 // const CategoryUrl=baseURL+'/admin/category';
 
 // block&Unblock
@@ -21,7 +24,8 @@ const unblockNeedyApi=baseURL+'/Admin/unblockneedy'
 
 
 
-const CategoryUrl='https://fyyp.herokuapp.com/admin/category';
+// const CategoryUrl='https://fyyp.herokuapp.com/admin/category'; 
+const CategoryUrl='http://192.168.50.143:6600/admin/category';
 // DONOR APIs 
 export const  fetchDonor=()=>axios.get(url);
 export const deleteDonorAPI=(id)=>axios.post(rejectDonorApi,{
@@ -36,6 +40,12 @@ export const BlockDonorAPI=(id)=>axios.post(blockDonorApi,{
 export const UnblockDonorAPI=(id)=>axios.post(unblockDonorApi,{
     donorId:id
 });
+
+
+// all donors 
+export const getAllDonorApi=()=>axios.get(getAllDonor);
+// needies
+export const getAllNeedyApi=()=>axios.get(getAllNeedy);
 
 
 //Needy APIs
@@ -63,7 +73,9 @@ export const UnblockNeedyAPI=(id)=>axios.post(unblockNeedyApi,{
  export const addCategoryAPI=(newData)=>axios.post(CategoryUrl,newData);
 
 
-
+ export default axios.create({
+    loginURL: 'https://fyyp.herokuapp.com'
+});
 
 
 //  Login api 

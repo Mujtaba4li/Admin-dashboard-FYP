@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function BlockDonor() {
-  const donorsData = useSelector((state) => state.donor);
+  const donorsData = useSelector((state) => state.alldonors);
   const dispatch=useDispatch();
   console.log(donorsData);
   const classes = useStyles();

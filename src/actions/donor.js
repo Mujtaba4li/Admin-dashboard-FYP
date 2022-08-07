@@ -1,4 +1,4 @@
- import {FETCH_DONOR,DELETE_DONOR,APPROVE_DONOR, BLOCK_DONOR,UNBLOCK_DONOR} from '../constants/actionTypes'
+ import {FETCH_DONOR,DELETE_DONOR,APPROVE_DONOR, BLOCK_DONOR,UNBLOCK_DONOR,FETCH_ALL_DONOR} from '../constants/actionTypes'
 
 import * as api from '../api/index';
 //Get donors
@@ -11,7 +11,16 @@ export const getDonor=()=> async(dispatch)=>{
         console.log(error.message);
     }
 }
-
+// get ALl donor 
+export const GetAllDonorApi=()=>async(dispatch)=>{
+  try {
+    const{data}=await api.getAllDonorApi();
+    console.log("I am donor")
+    dispatch({type:FETCH_ALL_DONOR,payload:data});
+  } catch (error) {
+    console.log(error.message);
+  }
+}
 
 //Delete Donor
 export const deleteDonor = (id) => async (dispatch) => {

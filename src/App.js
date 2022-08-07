@@ -5,7 +5,7 @@ import AdminRegister from './components/notRequire/AdminRegister';
 import LoginAdmin from './components/notRequire/LoginAdmin';
 import { useDispatch } from 'react-redux';
 import React,{useState, useEffect} from 'react';
-import { getDonor } from './actions/donor';
+import { GetAllDonorApi, getDonor } from './actions/donor';
 import { getNeedy } from './actions/needy';
 import {getCategories} from './actions/categories'
 
@@ -24,6 +24,7 @@ function App() {
     dispatch(getDonor());
     dispatch(getNeedy());
     dispatch(getCategories());
+    dispatch(GetAllDonorApi());
   },[CurrentId,dispatch])
 
 

@@ -1,4 +1,4 @@
-import {FETCH_NEEDY, DELETE_NEEDY, APPROVE_NEEDY,UNBLOCK_NEEDY,BLOCK_NEEDY} from "../constants/actionTypes";
+import {FETCH_NEEDY, DELETE_NEEDY, APPROVE_NEEDY,UNBLOCK_NEEDY,BLOCK_NEEDY,FETCH_ALL_NEEDY} from "../constants/actionTypes";
 import * as api from '../api/index.js';
 //Get needy
 export const getNeedy=()=> async(dispatch)=>{
@@ -63,3 +63,13 @@ export const deleteNeedy = (id) => async (dispatch) => {
       }
     };
   
+    // get ALl needy 
+export const GetAllNeedyApi=()=>async(dispatch)=>{
+  try {
+    const{data}=await api.getAllNeedyApi();
+    console.log("I am Needy")
+    dispatch({type:FETCH_ALL_NEEDY,payload:data});
+  } catch (error) {
+    console.log(error.message);
+  }
+}
